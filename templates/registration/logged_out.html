@@ -1,0 +1,10 @@
+<!-- Just testing the comment. But the sidebar wont be shown since there's checking in the template itself. -->
+{% comment We do not want the users to access the sidebar when logged out. %}
+{% extends "base_generic.html" %}
+{% endcomment %} 
+
+{% block content %}
+<p>Logged out!</p>  
+
+<a href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}

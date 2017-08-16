@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Author List</h1>
+
+    {% if authors %}
+    <ul>
+
+      {% for author in authors %}
+      <li>
+        <!--
+        NOTE: Even if you comment the {{ author.get_absolute_url }}, you will still get the error
+
+        Be sure to comment out Author model `get_absolute_url` method as well.
+        -->
+        <!-- *** author_death_date = '' if author.date_of_death is None else author.date_of_death -->
+        <a href="">{{ author }} ({{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %})</a>
+
+        <!--
+        QUESTION: Is it better to change the display in models or just update it here in views? 
+        
+        Thinking that the default display of `author` will be used in multiple areas of the code.
+        
+        *** Error during template render even if variable tags are already commented
+        <a href="">''' author  (author.date_of_birth - author.date_of_death)'''</a>
+        -->
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no authors.</p>
+    {% endif %}
+
+{% endblock %}
