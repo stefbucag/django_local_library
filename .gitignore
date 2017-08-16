@@ -6,3 +6,5 @@
 
 # IDE
 .vscode/
+
+*.pyc
